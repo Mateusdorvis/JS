@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Cronometro com interação do user</title>
+</head>
+<body>
+    <h1>Cronometro com interação do user</h1>
+    <p></p>
+    <p></p>
+    <label for="numero">Quantos minutos você deseja</label>
+    <input type="number" id="numero">
+    <button onclick="correr()">Começar</button>
+    <button onclick="parar()">Parar</button>
+    <button onclick="recomeco()">Recomeçar</button>
+    <script>
+        let intervalo
+        var p = document.getElementsByTagName('p')[0]
+        var p2 = document.getElementsByTagName('p')[1]
+        var input = document.getElementById('numero')
+        let segundos = 0
+        let minutos = 0
+        let click = false
+        let loopPause = false
+
+        function correr() {
+            if (input.value == '') {
+                alert('Preenche o campo ')
+                click = false
+            }
+            else {
+                if (!click) {
+                    intervalo = setInterval(function () {
+                        segundos++
+                        if (segundos >= 60) {
+                            minutos++
+                            segundos = 0
+                        }
+
+                        if (minutos >= input.value) {
+                            clearInterval(intervalo)
+                            click = false//coloquei false para reinicar mais tarde no futuro
+                            minutos  = 0
+                            segundos = 0
+                            
+                        }
+                        p.textContent = ` ${minutos} minut${minutos >= 2 ? 'os' : 'o'} : ${segundos} segund${segundos >= 2 ? 'os' : 'o'} `
+
+                    }, 100)
+                    click = true
+
+                }
+              
+                else {
+                    alert('Você já clicou')
+                }
+            }
+        }
+        function parar() {
+            clearInterval(intervalo)
+            click = false
+        }
+        function recomeco() {
+            segundos = 0
+            minutos = 0
+            p.textContent = ` ${minutos} minut${minutos >= 2 ? 'os' : 'o'} : ${segundos} segund${segundos >= 2 ? 'os' : 'o'} `
+            clearInterval(intervalo)
+            click = false
+        }
+    </script>
+</body>
+
+</html>

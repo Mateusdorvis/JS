@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Cronometro</title>
+</head>
+<body>
+    <h1>Cronometro</h1>
+    <p></p>
+    <script>
+        
+        var p = document.getElementsByTagName('p')[0]
+    
+        let segundos = 0
+        let minutos = 0
+        let hora = 0
+        setInterval(function(){
+        segundos++
+        if (segundos>=60){
+            minutos++
+            segundos = 0
+        }
+        if (minutos>=60){
+            hora++
+            minutos = 0
+        }
+        
+        p.textContent = `${hora} horas : ${minutos} minut${minutos>=2 ? 'os' : 'o'} : ${segundos} segund${segundos>=2 ? 'os' : 'o'} `
+        
+        },1000)
+       
+    </script>
+</body>
+
+</html>

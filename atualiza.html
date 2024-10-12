@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Cronometro com interação do user</title>
+</head>
+<body>
+    <h1>Atualizar uma mensagem na tela</h1>
+    <p id='paragrafo'>Mensagem antiga</p>
+    <script>
+    let lista = ['Mensgagem de agora']
+     var p = document.getElementById('paragrafo')
+     lista.forEach(function(msg, indice){
+        setInterval(function(){
+            p.innerText = msg
+        }, 1000)
+     })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Contando até 10 com setInterval</title>
+</head>
+<body>
+    <h1>Contando até 10 com setInterval</h1>
+    <p></p>
+    <script>
+        //var data = new Date('2024-9-23 10:36:00') formata data e hora para real
+        var p = document.getElementsByTagName('p')[0]
+        let numero = 0
+        setInterval(function(){
+        p.textContent = numero 
+        if (numero>=10){  //bloco que verifica se o numero é maior ou igual a 10
+            p.textContent = 'parou a contagem !'
+            numero = 0
+        }
+        numero++
+        },1000)
+       
+    </script>
+</body>
+
+</html>
